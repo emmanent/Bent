@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, Alert, Button } from "react-native";
 import PhoneInput from "react-native-phone-number-input";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -9,11 +9,12 @@ type CreateYourAccountProps = {
 };
 
 const CreateYourAccount: React.FC<CreateYourAccountProps> = (props) => {
+  const { navigation } = props;
+
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
-  const today = new Date(Date.now())
+  const today = new Date(Date.now());
   const [dob, setDob] = useState<Date>(today);
-  const phoneInput = useRef(null);
 
   return (
     <View>
@@ -21,7 +22,6 @@ const CreateYourAccount: React.FC<CreateYourAccountProps> = (props) => {
 
       <Text>Phone Number</Text>
       <PhoneInput
-        ref={phoneInput}
         defaultValue={phoneNumber}
         defaultCode="IN"
         layout="first"
@@ -54,7 +54,13 @@ const CreateYourAccount: React.FC<CreateYourAccountProps> = (props) => {
           Alert.alert(
             "Confirm Your Birthdate",
             `You entered ${dob.toDateString()}. You can only change this once, so be sure it is accurate.`,
-            [{ text: "Go back" }, { text: "Confirm" }]
+            [
+              { text: "Go back" },
+              {
+                text: "Confirm",
+                onPress: () => navigation.navigate("CreateYourProfile"),
+              },
+            ]
           )
         }
       />
