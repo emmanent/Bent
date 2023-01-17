@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import styles from "./../globalStylesheet";
+import BigBlueBotton from "../components/BigBlueButton";
 
 type WelcomeProps = {
   navigation: any;
@@ -18,12 +19,10 @@ const Welcome: React.FC<WelcomeProps> = (props) => {
       </ScrollView>
 
       <View style={styles.footer}>
-        <Pressable
-          style={styles.bigBluebutton}
+        <BigBlueBotton
           onPress={() => navigation.navigate("CreateYourAccount")}
-        >
-          <Text style={styles.bigBlueButtonText}>Sign Up</Text>
-        </Pressable>
+          text="Sign Up"
+        />
       </View>
       <StatusBar />
     </View>
