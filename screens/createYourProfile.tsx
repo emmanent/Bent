@@ -25,7 +25,7 @@ const CreateYourProfile: React.FC<CreateYourProfileProps> = (props) => {
       <Button
         title="Next"
         onPress={() =>
-            navigation.navigate("CreateYourProfile")
+            navigation.navigate("AddAProfilePic")
         }
       />
 
