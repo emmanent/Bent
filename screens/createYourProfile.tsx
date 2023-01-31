@@ -19,8 +19,10 @@ const CreateYourProfile: React.FC<CreateYourProfileProps> = (props) => {
       <TextInput onChangeText={(text) => setName(text)} value={name} />
 
       <Text>Pronouns</Text>
+      {/* TODO: how to provide a list for the user */}
 
       <Text>Location</Text>
+      {/* TODO: how to procure user location information */}
 
       <Button
         title="Next"

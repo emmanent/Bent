@@ -22,6 +22,7 @@ const AddAProfilePic: React.FC<AddAProfilePicProps> = (props) => {
         onPress={() => Alert.alert(
             "Bent would like to send you notifications",
             "Notifications may include alerts, sounds, and icon badges. These can be configured in Settings.",
+            // TODO: the Alert buttons should configure notification settings
             [
               { text: "Don't Allow" },
               {
